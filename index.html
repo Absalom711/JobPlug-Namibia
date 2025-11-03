@@ -6,6 +6,31 @@
   <title>NamYouth Connect - Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Popup Styling (Smaller + Neat) */
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #00ff88;
+      color: #111;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    .popup.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -84,7 +109,7 @@
   <section class="contact animate" id="contact">
     <h2>Get in Touch</h2>
     <p>Have a question or want to collaborate? Reach out to us below.</p>
-    <form>
+    <form onsubmit="sendMessage(event)">
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
       <textarea placeholder="Your Message" required></textarea>
@@ -92,12 +117,28 @@
     </form>
   </section>
 
+ <!-- Popup Message -->
+<div id="popup" class="popup">✅ Message sent! Thanks for interacting with JobPlug.</div>
+
+
   <!-- Footer -->
   <footer>
     <p>Designed by Absalom Willem and Stephen Nangolo | © 2025 NamYouth Connect</p>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Popup logic + clear form
+    function sendMessage(event) {
+      event.preventDefault();
+      const popup = document.getElementById('popup');
+      const form = event.target;
+
+      popup.classList.add('show');
+      setTimeout(() => popup.classList.remove('show'), 2000);
+
+      form.reset(); // clear inputs
+    }
+  </script>
 </body>
 </html>
-
