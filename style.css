@@ -18,9 +18,9 @@ body {
   justify-content: center;
   background: #111;
   padding: 15px 0;
-  position: sticky;
+  position: sticky; /* keeps navbar at top */
   top: 0;
-  z-index: 1000;
+  z-index: 10000;  /* higher than all other elements */
 }
 .navbar ul {
   list-style: none;
