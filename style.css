@@ -251,3 +251,18 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+.hero-logo {
+  width: 280px;       /* same size as index logo */
+  max-width: 90%;     /* stays responsive on smaller screens */
+  height: auto;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 25px rgba(0, 119, 255, 0.4));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.hero-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 35px rgba(0, 140, 255, 0.6));
+}
+
